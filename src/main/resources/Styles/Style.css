@@ -1,3 +1,10 @@
 .navbar {
     -fx-padding: 6px;
 }
+
+.svg-path {
+    -fx-text-fill: #1f6feb;
+    -fx-stroke: #1f6feb;
+    -fx-fill: #1f6feb;
+    -fx-stroke-opacity: 1;
+}

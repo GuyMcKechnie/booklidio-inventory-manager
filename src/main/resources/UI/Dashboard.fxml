@@ -32,21 +32,24 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.shape.SVGPath?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="scene" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.booklidio.Frontend.FrontendController">
    <children>
@@ -54,48 +57,70 @@
          <children>
             <HBox alignment="CENTER_LEFT" fillHeight="false" HBox.hgrow="ALWAYS">
                <children>
-                  <GridPane alignment="CENTER_LEFT" hgap="12.0">
+                  <GridPane alignment="CENTER" hgap="12.0">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                      <ColumnConstraints hgrow="ALWAYS" />
+                      <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints hgrow="ALWAYS" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="navbar_Orders" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" onAction="#changeDashboard" text="Orders" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                           <styleClass>
-                              <String fx:value="button-outlined" />
-                              <String fx:value="accent" />
-                           </styleClass>
-                        </Button>
-                        <Button fx:id="navbar_Inventory" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" onAction="#changeDashboard" text="Inventory" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                           <styleClass>
-                              <String fx:value="button-outlined" />
-                              <String fx:value="accent" />
-                           </styleClass>
-                        </Button>
-                        <Button fx:id="navbar_Buyers" mnemonicParsing="false" onAction="#changeDashboard" text="Buyers" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                           <styleClass>
-                              <String fx:value="button-outlined" />
-                              <String fx:value="accent" />
-                           </styleClass>
-                        </Button>
-                        <Button fx:id="navbar_Sellers" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" onAction="#changeDashboard" text="Sellers" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                           <styleClass>
-                              <String fx:value="button-outlined" />
-                              <String fx:value="accent" />
-                           </styleClass>
-                        </Button>
+                        <MenuButton fx:id="Orders" mnemonicParsing="false" text="Orders" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                          <items>
+                              <MenuItem fx:id="navbar_viewOrders" mnemonicParsing="false" onAction="#changeDashboard" text="View Orders">
+                                 <graphic>
+                                    <SVGPath content="M14.375 1.917H5.75a1.917 1.917 0 0 0-1.917 1.916v15.334a1.917 1.917 0 0 0 1.917 1.916h11.5a1.917 1.917 0 0 0 1.917-1.916V6.708Z" fill="TRANSPARENT" stroke="#1f6feb" />
+                                 </graphic></MenuItem>
+                            <MenuItem fx:id="navbar_newOrder" mnemonicParsing="false" onAction="#changeDashboard" text="New Order">
+                                 <graphic>
+                                    <SVGPath content="M13.417 1.917V5.75a1.917 1.917 0 0 0 1.916 1.917h3.834M8.625 14.375h5.75M11.5 17.25V11.5 M14.375 1.917H5.75a1.917 1.917 0 0 0-1.917 1.916v15.334a1.917 1.917 0 0 0 1.917 1.916h11.5a1.917 1.917 0 0 0 1.917-1.916V6.708Z" fill="#2172eb00" fillRule="EVEN_ODD" stroke="#1f6feb" />
+                                 </graphic></MenuItem>
+                          </items>
+                        </MenuButton>
+                        <MenuButton fx:id="Inventory" layoutX="18.0" layoutY="7.0" mnemonicParsing="false" text="Inventory" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <items>
+                              <MenuItem fx:id="navbar_viewCatalogue" mnemonicParsing="false" onAction="#changeDashboard" text="View Catalogue">
+                                 <graphic>
+                                    <SVGPath content="M20.125 11.5h-7.667m7.667-5.75H7.667m12.458 11.5h-7.667M2.875 5.75v3.833c0 1.055.863 1.917 1.917 1.917h2.875 M2.875 9.583v5.75c0 1.055.863 1.917 1.917 1.917h2.875" fill="#2172eb00" fillRule="EVEN_ODD" stroke="#1f6feb" />
+                                 </graphic></MenuItem>
+                              <MenuItem fx:id="navbar_viewInventory" mnemonicParsing="false" onAction="#changeDashboard" text="View Inventory">
+                                 <graphic>
+                                    <SVGPath content="M20.125 9.583V7.667a1.92 1.92 0 0 0-.958-1.658l-6.709-3.834a1.92 1.92 0 0 0-1.916 0L3.833 6.01a1.92 1.92 0 0 0-.958 1.658v7.666a1.92 1.92 0 0 0 .958 1.658l6.709 3.834a1.92 1.92 0 0 0 1.916 0l1.917-1.093M7.188 4.092l8.625 4.936 M3.153 6.708 11.5 11.5l8.347-4.792M11.5 21.083V11.5m3.833 3.354a2.396 2.396 0 1 0 4.792 0 2.396 2.396 0 1 0-4.792 0m4.092 1.696 1.658 1.658" fill="TRANSPARENT" fillRule="EVEN_ODD" stroke="#1f6feb" />
+                                 </graphic></MenuItem>
+                              <MenuItem fx:id="navbar_newItem" mnemonicParsing="false" onAction="#changeDashboard" text="New Item">
+                                 <graphic>
+                                    <SVGPath content="M15.333 15.333h5.75m-2.875-2.875v5.75m1.917-8.625V7.667a1.92 1.92 0 0 0-.958-1.658l-6.709-3.834a1.92 1.92 0 0 0-1.916 0L3.833 6.01a1.92 1.92 0 0 0-.958 1.658v7.666a1.92 1.92 0 0 0 .958 1.658l6.709 3.834a1.92 1.92 0 0 0 1.916 0l1.917-1.093M7.188 4.092l8.625 4.936" fill="TRANSPARENT" fillRule="EVEN_ODD" stroke="#1f6feb" styleClass="accent" />
+                                 </graphic>
+                              </MenuItem>
+                           </items>
+                        </MenuButton>
+                        <MenuButton fx:id="Sellers" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" text="Sellers" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <items>
+                              <MenuItem fx:id="navbar_viewSellers" mnemonicParsing="false" onAction="#changeDashboard" text="View Sellers">
+                                 <graphic>
+                                    <SVGPath content="M1.917 7.667h19.166M3.833 3.833h15.334s1.916 0 1.916 1.917v11.5s0 1.917-1.916 1.917H3.833s-1.916 0-1.916-1.917V5.75s0-1.917 1.916-1.917m1.917 11.5h11.5" fill="TRANSPARENT" fillRule="EVEN_ODD" stroke="#1f6feb" />
+                                 </graphic></MenuItem>
+                              <MenuItem fx:id="navbar_newSeller" mnemonicParsing="false" onAction="#changeDashboard" text="New Seller">
+                                 <graphic>
+                                    <SVGPath content="M1.917 11.5a9.583 9.583 0 1 0 19.166 0 9.583 9.583 0 1 0-19.166 0m5.75 0h7.666M11.5 7.667v7.666" fill="TRANSPARENT" fillRule="EVEN_ODD" stroke="#1f6feb" />
+                                 </graphic></MenuItem>
+                           </items>
+                        </MenuButton>
                      </children>
                   </GridPane>
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" fillHeight="false">
+            <HBox alignment="CENTER_RIGHT" spacing="12.0">
                <children>
-                  <Button fx:id="loginButton" alignment="CENTER" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" mnemonicParsing="false" onAction="#handle_loginButton" text="Login" textFill="#1b1b1b" HBox.hgrow="NEVER">
+                  <Button fx:id="refreshButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#refresh" text="Button">
+                     <graphic>
+                        <SVGPath content="M2.875 11.5A8.625 8.625 0 0 1 11.5 2.875a9.34 9.34 0 0 1 6.46 2.626l2.165 2.166m0-4.792v4.792h-4.792m4.792 3.833a8.625 8.625 0 0 1-8.625 8.625 9.34 9.34 0 0 1-6.46-2.626l-2.165-2.166m4.792 0H2.875v4.792" fill="#2172eb00" fillRule="EVEN_ODD" stroke="#1f6feb" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="loginButton" alignment="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#handle_loginButton" text="Login" HBox.hgrow="NEVER">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -112,89 +137,338 @@
       </HBox>
       <StackPane VBox.vgrow="ALWAYS">
          <children>
-            <HBox fx:id="Orders">
+            <HBox fx:id="viewOrders" visible="false">
                <children>
                   <VBox alignment="TOP_CENTER" prefWidth="300.0" spacing="12.0">
-                     <children>
-                        <Label styleClass="heading" text="Add an Order" />
-                        <VBox>
-                           <children>
-                              <Label styleClass="body" text="Buyer" />
-                           </children>
-                        </VBox>
-                        <VBox layoutX="22.0" layoutY="57.0">
-                           <children>
-                              <Label text="Label" />
-                              <TextField styleClass="textfield" />
-                           </children>
-                        </VBox>
-                        <VBox layoutX="22.0" layoutY="112.0">
-                           <children>
-                              <Label styleClass="body" text="Label" />
-                              <TextField styleClass="textfield" />
-                           </children>
-                        </VBox>
-                        <VBox layoutX="22.0" layoutY="167.0">
-                           <children>
-                              <Label styleClass="body" text="Label" />
-                              <TextField styleClass="textfield" />
-                           </children>
-                        </VBox>
-                     </children>
                      <padding>
                         <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                      </padding>
+                     <children>
+                        <Label styleClass="title-1" text="Order Information" />
+                        <Separator prefWidth="200.0" />
+                        <VBox fx:id="orderGroup" disable="true" spacing="24.0">
+                           <children>
+                              <VBox spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="Buyer" />
+                                    <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                       <children>
+                                          <TextField fx:id="order_buyerFullName" HBox.hgrow="ALWAYS" />
+                                          <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="button-outlined" text="Button">
+                                             <graphic>
+                                                <SVGPath content="m20.125 20.125 -4.120833333333334 -4.120833333333334 M2.875 10.541666666666668a7.666666666666667 7.666666666666667 0 1 0 15.333333333333334 0 7.666666666666667 7.666666666666667 0 1 0 -15.333333333333334 0" fill="TRANSPARENT" fillRule="EVEN_ODD" stroke="#1f6feb" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="Total" />
+                                    <HBox fx:id="order_totalGroup" alignment="CENTER_LEFT" spacing="12.0">
+                                       <children>
+                                          <TextField fx:id="order_total" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER" spacing="12.0">
+                           <children>
+                              <ToggleButton fx:id="order_toggleEdit" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handle_order_toggleEdit" text="Toggle Edit Mode">
+                                 <graphic>
+                                    <SVGPath content="M11.5 19.167h8.625M15.813 3.354a2.032 2.032 0 0 1 2.874 2.875L6.709 18.21l-3.833.958.958-3.834Z" fill="TRANSPARENT" stroke="#1f6feb" styleClass="toggle-button-icon" />
+                                 </graphic>
+                              </ToggleButton>
+                              <Button mnemonicParsing="false" onAction="#catalogue_edit_save" text="Save">
+                                 <graphic>
+                                    <SVGPath content="M14.567 2.875a1.92 1.92 0 0 1 1.341.575l3.642 3.642a1.92 1.92 0 0 1 .575 1.341v9.775a1.917 1.917 0 0 1-1.917 1.917H4.792a1.917 1.917 0 0 1-1.917-1.917V4.792a1.917 1.917 0 0 1 1.917-1.917zm1.725 17.25v-6.708a.96.96 0 0 0-.959-.959H7.667a.96.96 0 0 0-.959.959v6.708m0-17.25v3.833a.96.96 0 0 0 .959.959h6.708" fill="TRANSPARENT" stroke="#1f6feb" />
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#catalogue_edit_discard" text="Discard">
+                                 <graphic>
+                                    <SVGPath content="M2.875 5.75h17.25m-1.917 0v13.417c0 .958-.958 1.916-1.916 1.916H6.708c-.958 0-1.916-.958-1.916-1.916V5.75m2.875 0V3.833c0-.958.958-1.916 1.916-1.916h3.834c.958 0 1.916.958 1.916 1.916V5.75m-5.75 4.792v5.75m3.834-5.75v5.75" fill="TRANSPARENT" fillRule="EVEN_ODD" stroke="#1f6feb" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <VBox alignment="TOP_CENTER">
+                           <children>
+                              <Label styleClass="title-3" text="Textbook List" />
+                              <TableView VBox.vgrow="ALWAYS">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="Title" />
+                                  <TableColumn prefWidth="75.0" text="ISBN" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children>
                   </VBox>
-                  <TableView HBox.hgrow="ALWAYS">
+                  <TableView fx:id="dashboard_OrderTable" editable="true" HBox.hgrow="ALWAYS">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                      <TableColumn fx:id="orderTable_OrderID" editable="false" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="orderTable_OrderBuyer" editable="false" prefWidth="75.0" text="Buyer" />
+                      <TableColumn fx:id="orderTable_OrderTotal" editable="false" prefWidth="75.0" text="Total" />
                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                </children>
             </HBox>
-            <HBox fx:id="Inventory" layoutX="10.0" layoutY="10.0" visible="false">
+            <HBox fx:id="newOrder" layoutX="10.0" layoutY="10.0" visible="false" />
+            <HBox fx:id="viewCatalogue" layoutX="10.0" layoutY="10.0" visible="false">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox alignment="TOP_CENTER" prefWidth="300.0" spacing="12.0">
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </padding>
                      <children>
-                        <TextField />
+                        <Label styleClass="title-1" text="Catalogue" />
+                        <Separator prefWidth="200.0" />
+                        <VBox fx:id="catalogueGroup" disable="true" spacing="24.0">
+                           <children>
+                              <VBox spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="ISBN" />
+                                    <TextField fx:id="catalogue_ISBN" />
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="10.0" spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="Title" />
+                                    <TextField fx:id="catalogue_Title" />
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="102.0" spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="New Price" />
+                                    <TextField fx:id="catalogue_NewPrice" />
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="194.0" spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="Used Price" />
+                                    <TextField fx:id="catalogue_UsedPrice" />
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="286.0" spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="Cost Price" />
+                                    <TextField fx:id="catalogue_CostPrice" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <Separator layoutX="22.0" layoutY="110.0" prefWidth="200.0" />
+                        <HBox alignment="CENTER" spacing="12.0">
+                           <children>
+                              <ToggleButton fx:id="catalogue_toggleEdit" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handle_catalogue_toggleEdit" text="Toggle Edit Mode">
+                                 <graphic>
+                                    <SVGPath content="M11.5 19.167h8.625M15.813 3.354a2.032 2.032 0 0 1 2.874 2.875L6.709 18.21l-3.833.958.958-3.834Z" fill="TRANSPARENT" stroke="#1f6feb" styleClass="toggle-button-icon" />
+                                 </graphic>
+                              </ToggleButton>
+                              <Button mnemonicParsing="false" onAction="#catalogue_edit_save" text="Save">
+                                 <graphic>
+                                    <SVGPath content="M14.567 2.875a1.92 1.92 0 0 1 1.341.575l3.642 3.642a1.92 1.92 0 0 1 .575 1.341v9.775a1.917 1.917 0 0 1-1.917 1.917H4.792a1.917 1.917 0 0 1-1.917-1.917V4.792a1.917 1.917 0 0 1 1.917-1.917zm1.725 17.25v-6.708a.96.96 0 0 0-.959-.959H7.667a.96.96 0 0 0-.959.959v6.708m0-17.25v3.833a.96.96 0 0 0 .959.959h6.708" fill="TRANSPARENT" stroke="#1f6feb" />
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#catalogue_edit_discard" text="Discard">
+                                 <graphic>
+                                    <SVGPath content="M2.875 5.75h17.25m-1.917 0v13.417c0 .958-.958 1.916-1.916 1.916H6.708c-.958 0-1.916-.958-1.916-1.916V5.75m2.875 0V3.833c0-.958.958-1.916 1.916-1.916h3.834c.958 0 1.916.958 1.916 1.916V5.75m-5.75 4.792v5.75m3.834-5.75v5.75" fill="TRANSPARENT" fillRule="EVEN_ODD" stroke="#1f6feb" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <TableView prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="dashboard_CatalogueTable" editable="true" HBox.hgrow="ALWAYS">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="C1" />
-                        <TableColumn prefWidth="75.0" text="C2" />
+                        <TableColumn fx:id="catalogueTable_TextbookID" editable="false" prefWidth="75.0" text="ISBN" />
+                        <TableColumn fx:id="catalogueTable_TextbookTitle" editable="false" prefWidth="75.0" text="Title" />
+                        <TableColumn fx:id="catalogueTable_TextbookNewPrice" editable="false" prefWidth="75.0" text="New Price" />
+                        <TableColumn fx:id="catalogueTable_TextbookUsedPrice" editable="false" prefWidth="75.0" text="Used Price" />
+                        <TableColumn fx:id="catalogueTable_TextbookCostPrice" editable="false" prefWidth="75.0" text="Cost Price" />
                      </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                </children>
             </HBox>
-            <HBox fx:id="Buyers" layoutX="10.0" layoutY="10.0" visible="false">
+            <HBox fx:id="viewInventory" layoutX="10.0" layoutY="10.0" visible="false">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox alignment="TOP_CENTER" prefWidth="300.0" spacing="12.0">
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </padding>
                      <children>
-                        <TextField />
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label styleClass="title-1" text="Inventory" />
+                           </children>
+                        </VBox>
+                        <Separator prefWidth="200.0" />
+                        <VBox fx:id="inventoryGroup" disable="true" spacing="24.0">
+                           <children>
+                              <VBox spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="ISBN" />
+                                    <TextField fx:id="inventory_ISBN" />
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="10.0" spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="Title" />
+                                    <TextField fx:id="inventory_Title" />
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="102.0" spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="New Price" />
+                                    <TextField fx:id="inventory_NewPrice" />
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="286.0" spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="Cost Price" />
+                                    <TextField fx:id="inventory_CostPrice" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="Seller" />
+                                    <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                       <children>
+                                          <TextField fx:id="inventory_Seller" HBox.hgrow="ALWAYS" />
+                                          <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="button-outlined" text="Button">
+                                             <graphic>
+                                                <SVGPath content="m20.125 20.125 -4.120833333333334 -4.120833333333334 M2.875 10.541666666666668a7.666666666666667 7.666666666666667 0 1 0 15.333333333333334 0 7.666666666666667 7.666666666666667 0 1 0 -15.333333333333334 0" fill="TRANSPARENT" fillRule="EVEN_ODD" stroke="#1f6feb" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <Separator layoutX="22.0" layoutY="110.0" prefWidth="200.0" />
+                        <HBox alignment="CENTER" spacing="12.0">
+                           <children>
+                              <ToggleButton fx:id="inventory_toggleEdit" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handle_inventory_toggleEdit" text="Toggle Edit Mode">
+                                 <graphic>
+                                    <SVGPath content="M11.5 19.167h8.625M15.813 3.354a2.032 2.032 0 0 1 2.874 2.875L6.709 18.21l-3.833.958.958-3.834Z" fill="TRANSPARENT" stroke="#1f6feb" styleClass="toggle-button-icon" />
+                                 </graphic>
+                              </ToggleButton>
+                              <Button mnemonicParsing="false" onAction="#catalogue_edit_save" text="Save">
+                                 <graphic>
+                                    <SVGPath content="M14.567 2.875a1.92 1.92 0 0 1 1.341.575l3.642 3.642a1.92 1.92 0 0 1 .575 1.341v9.775a1.917 1.917 0 0 1-1.917 1.917H4.792a1.917 1.917 0 0 1-1.917-1.917V4.792a1.917 1.917 0 0 1 1.917-1.917zm1.725 17.25v-6.708a.96.96 0 0 0-.959-.959H7.667a.96.96 0 0 0-.959.959v6.708m0-17.25v3.833a.96.96 0 0 0 .959.959h6.708" fill="TRANSPARENT" stroke="#1f6feb" />
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#catalogue_edit_discard" text="Discard">
+                                 <graphic>
+                                    <SVGPath content="M2.875 5.75h17.25m-1.917 0v13.417c0 .958-.958 1.916-1.916 1.916H6.708c-.958 0-1.916-.958-1.916-1.916V5.75m2.875 0V3.833c0-.958.958-1.916 1.916-1.916h3.834c.958 0 1.916.958 1.916 1.916V5.75m-5.75 4.792v5.75m3.834-5.75v5.75" fill="TRANSPARENT" fillRule="EVEN_ODD" stroke="#1f6feb" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <TableView prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="dashboard_InventoryTable" editable="true" HBox.hgrow="ALWAYS">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="C1" />
-                        <TableColumn prefWidth="75.0" text="C2" />
+                        <TableColumn fx:id="inventoryTable_ISBN" editable="false" prefWidth="75.0" text="ISBN" />
+                        <TableColumn fx:id="inventoryTable_Title" editable="false" prefWidth="75.0" text="Title" />
+                        <TableColumn fx:id="inventoryTable_NewPrice" editable="false" prefWidth="75.0" text="New Price" />
+                        <TableColumn fx:id="inventoryTable_CostPrice" editable="false" prefWidth="75.0" text="Cost Price" />
+                        <TableColumn fx:id="inventoryTable_Seller" editable="false" prefWidth="75.0" text="Seller" />
                      </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                </children>
             </HBox>
-            <HBox fx:id="Sellers" layoutX="10.0" layoutY="10.0" visible="false">
+            <HBox fx:id="viewSellers" layoutX="10.0" layoutY="10.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox alignment="TOP_CENTER" prefWidth="300.0" spacing="12.0">
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </padding>
                      <children>
-                        <TextField />
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label styleClass="title-1" text="Sellers" />
+                           </children>
+                        </VBox>
+                        <Separator prefWidth="200.0" />
+                        <VBox fx:id="sellersGroup" disable="true" spacing="24.0">
+                           <children>
+                              <VBox spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="ID" />
+                                    <TextField fx:id="sellers_ID" />
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="10.0" spacing="6.0">
+                                 <children>
+                                    <Label styleClass="title-4" text="Full Name" />
+                                    <TextField fx:id="sellers_fullName" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER" spacing="12.0">
+                           <children>
+                              <ToggleButton fx:id="sellers_toggleEdit" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handle_sellers_toggleEdit" text="Toggle Edit Mode">
+                                 <graphic>
+                                    <SVGPath content="M11.5 19.167h8.625M15.813 3.354a2.032 2.032 0 0 1 2.874 2.875L6.709 18.21l-3.833.958.958-3.834Z" fill="TRANSPARENT" stroke="#1f6feb" styleClass="toggle-button-icon" />
+                                 </graphic>
+                              </ToggleButton>
+                              <Button mnemonicParsing="false" onAction="#catalogue_edit_save" text="Save">
+                                 <graphic>
+                                    <SVGPath content="M14.567 2.875a1.92 1.92 0 0 1 1.341.575l3.642 3.642a1.92 1.92 0 0 1 .575 1.341v9.775a1.917 1.917 0 0 1-1.917 1.917H4.792a1.917 1.917 0 0 1-1.917-1.917V4.792a1.917 1.917 0 0 1 1.917-1.917zm1.725 17.25v-6.708a.96.96 0 0 0-.959-.959H7.667a.96.96 0 0 0-.959.959v6.708m0-17.25v3.833a.96.96 0 0 0 .959.959h6.708" fill="TRANSPARENT" stroke="#1f6feb" />
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#catalogue_edit_discard" text="Discard">
+                                 <graphic>
+                                    <SVGPath content="M2.875 5.75h17.25m-1.917 0v13.417c0 .958-.958 1.916-1.916 1.916H6.708c-.958 0-1.916-.958-1.916-1.916V5.75m2.875 0V3.833c0-.958.958-1.916 1.916-1.916h3.834c.958 0 1.916.958 1.916 1.916V5.75m-5.75 4.792v5.75m3.834-5.75v5.75" fill="TRANSPARENT" fillRule="EVEN_ODD" stroke="#1f6feb" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <VBox alignment="TOP_CENTER">
+                           <children>
+                              <Label styleClass="title-3" text="Textbook List" />
+                              <TableView VBox.vgrow="ALWAYS">
+                                 <columns>
+                                    <TableColumn prefWidth="75.0" text="Title" />
+                                    <TableColumn prefWidth="75.0" text="ISBN" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </VBox>
                      </children>
                   </VBox>
-                  <TableView prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="dashboard_SellersTable" editable="true" HBox.hgrow="ALWAYS">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="C1" />
-                        <TableColumn prefWidth="75.0" text="C2" />
+                        <TableColumn fx:id="inventoryTable_ISBN1" editable="false" prefWidth="75.0" text="ISBN" />
+                        <TableColumn fx:id="inventoryTable_Title1" editable="false" prefWidth="75.0" text="Title" />
+                        <TableColumn fx:id="inventoryTable_NewPrice1" editable="false" prefWidth="75.0" text="New Price" />
+                        <TableColumn fx:id="inventoryTable_CostPrice1" editable="false" prefWidth="75.0" text="Cost Price" />
+                        <TableColumn fx:id="inventoryTable_Seller1" editable="false" prefWidth="75.0" text="Seller" />
                      </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                </children>
             </HBox>

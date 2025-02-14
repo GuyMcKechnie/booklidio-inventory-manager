@@ -1,5 +1,8 @@
 package com.booklidio;
 
+import java.sql.Time;
+import java.util.Timer;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,6 +20,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private static final Logger LOGGER = LogManager.getLogger();
+    public static Stage primaryStage = null;
 
     public static void main(String[] args) {
         launch(args);
@@ -25,6 +29,20 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         try {
+            // Load the loading FXML file
+            FXMLLoader loadingLoader = new FXMLLoader(getClass().getResource("/UI/LoadingDashboard.fxml"));
+            Parent loadingRoot = loadingLoader.load();
+            Stage loadingStage = new Stage();
+            loadingStage.setScene(new Scene(loadingRoot));
+            loadingStage.setAlwaysOnTop(true);
+            loadingStage.setOnCloseRequest(event -> {
+                System.exit(0);
+            });
+            loadingStage.show();
+
+            // Load the rest of the program
+
+            Main.primaryStage = primaryStage;
 
             // Load the FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Dashboard.fxml"));
@@ -39,8 +57,8 @@ public class Main extends Application {
             primaryStage.setResizable(false);
             primaryStage.setHeight(800);
             primaryStage.setWidth(1280);
+            Application.setUserAgentStylesheet(new PrimerDark().getUserAgentStylesheet());
             dashboardScene.getStylesheets().add(getClass().getResource("/Styles/Style.css").toExternalForm());
-            dashboardScene.getStylesheets().add(getClass().getResource("/Styles/primer-dark.css").toExternalForm());
 
             // Handle the close request
             primaryStage.setOnCloseRequest(event -> {
@@ -53,6 +71,8 @@ public class Main extends Application {
 
             // Init stage
             primaryStage.show();
+
+            loadingStage.close();
 
         } catch (Exception e) {
             e.printStackTrace();

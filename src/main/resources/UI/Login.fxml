@@ -36,10 +36,10 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label styleClass="body" text="Username" />
-                  <TextField GridPane.columnIndex="1" />
+                  <Label styleClass="body" text="Email" />
+                  <TextField fx:id="emailField" GridPane.columnIndex="1" />
                   <Label styleClass="body" text="Password" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <Button fx:id="loginButtonSubmit" mnemonicParsing="false" onAction="#handle_loginButtonSubmit" text="Login" />

@@ -4449,6 +4449,7 @@ Add support for NO_HEADER tweak in tables .table-view.no-header > .column-header
   -color-button-bg-selected: -color-accent-emphasis;
   -color-button-fg-selected: -color-fg-emphasis;
   -fx-padding: 8px 12px 8px 12px;
+  -fx-icon-color-pressed: -color-button-fg;
 }
 .toggle-button .font-icon, .toggle-button .ikonli-font-icon {
   -fx-icon-color: -color-button-fg;
@@ -4498,11 +4499,12 @@ Add support for NO_HEADER tweak in tables .table-view.no-header > .column-header
 .toggle-button:selected, .toggle-button:selected:focused {
   -fx-background-color: -color-accent-emphasis, -color-button-bg-selected;
   -fx-text-fill: -color-button-fg-selected;
+  -fx-stroke: -color-bg-default;
   -fx-background-insets: 0;
 }
 .toggle-button:selected .font-icon, .toggle-button:selected .ikonli-font-icon, .toggle-button:selected:focused .font-icon, .toggle-button:selected:focused .ikonli-font-icon {
   -fx-fill: -color-button-fg-selected;
-  -fx-icon-color: -color-button-fg-selected;
+  -fx-icon-color: -color-button-bg-selected;
 }
 .toggle-button:show-mnemonics:selected > .mnemonic-underline {
   -fx-stroke: -color-button-fg-selected;
