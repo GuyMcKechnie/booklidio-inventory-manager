@@ -10,17 +10,26 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class FrontendController {
+
+    @FXML
+    static StackPane container;
+
+    public static void setStackPane(Node stackPane) {
+        container = (StackPane) stackPane;
+    }
 
     @FXML
     private HBox viewOrders;
@@ -38,8 +47,10 @@ public class FrontendController {
     private MenuItem navbar_newOrder;
     @FXML
     private MenuItem navbar_viewCatalogue;
+
     @FXML
     private MenuItem navbar_viewInventory;
+
     @FXML
     private MenuItem navbar_viewSellers;
 
@@ -60,21 +71,21 @@ public class FrontendController {
 
     @FXML
     private TextField passwordField;
-
     HashMap<MenuItem, HBox> dashboardMap = new HashMap<>();
-
     @FXML
     VBox catalogueGroup;
+
     @FXML
     VBox inventoryGroup;
+
     @FXML
     VBox sellersGroup;
-
     @FXML
     ToggleButton catalogue_toggleEdit;
 
     @FXML
     ToggleButton inventory_toggleEdit;
+
     @FXML
     ToggleButton sellers_toggleEdit;
 
@@ -83,29 +94,42 @@ public class FrontendController {
         initDashboardMap();
     }
 
+    public String loadFXML(MenuItem menuItem) {
+        if (menuItem == navbar_viewOrders) {
+            return "/UI/ViewOrders.fxml";
+        } else if (menuItem == navbar_viewSellers) {
+            return "/UI/ViewSellers.fxml";
+        } else if (menuItem == navbar_viewCatalogue) {
+            return "/UI/ViewCatalogue.fxml";
+        } else if (menuItem == navbar_viewInventory) {
+            return "/UI/ViewInventory.fxml";
+        }
+        return null;
+    }
+
+    // @todo : refactor this method
+
+    @FXML
+    private void changeDashboard(ActionEvent event) throws Exception {
+        MenuItem selectedItem = (MenuItem) event.getSource();
+        String fxmlFile = loadFXML(selectedItem);
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Parent dashboard = loader.load();
+            container.getChildren().clear();
+            container.getChildren().add(dashboard);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void initDashboardMap() {
         dashboardMap.put(navbar_viewOrders, viewOrders);
         dashboardMap.put(navbar_newOrder, newOrder);
         dashboardMap.put(navbar_viewCatalogue, viewCatalogue);
         dashboardMap.put(navbar_viewInventory, viewInventory);
         dashboardMap.put(navbar_viewSellers, viewSellers);
-    }
-
-    @FXML
-    private void changeDashboard(ActionEvent event) {
-        for (HashMap.Entry<MenuItem, HBox> entry : dashboardMap.entrySet()) {
-            MenuItem key = entry.getKey();
-            HBox value = entry.getValue();
-            /*
-             * Iterate through the dashboard map to toggle the visibility of the
-             * corresponding HBox based on the selected MenuItem.
-             */
-            if (event.getSource().equals(key)) {
-                value.setVisible(true);
-            } else {
-                value.setVisible(false);
-            }
-        }
     }
 
     @FXML

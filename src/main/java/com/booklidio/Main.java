@@ -1,15 +1,7 @@
 package com.booklidio;
 
-import java.sql.Time;
-import java.util.Timer;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import com.booklidio.Database.DatabaseController;
 import com.booklidio.Frontend.FrontendController;
 
-import atlantafx.base.theme.PrimerDark;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,8 +11,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    private static final Logger LOGGER = LogManager.getLogger();
     public static Stage primaryStage = null;
+    public static Scene dashboardScene = null;
 
     public static void main(String[] args) {
         launch(args);
@@ -29,18 +21,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         try {
-            // Load the loading FXML file
-            FXMLLoader loadingLoader = new FXMLLoader(getClass().getResource("/UI/LoadingDashboard.fxml"));
-            Parent loadingRoot = loadingLoader.load();
-            Stage loadingStage = new Stage();
-            loadingStage.setScene(new Scene(loadingRoot));
-            loadingStage.setAlwaysOnTop(true);
-            loadingStage.setOnCloseRequest(event -> {
-                System.exit(0);
-            });
-            loadingStage.show();
-
-            // Load the rest of the program
 
             Main.primaryStage = primaryStage;
 
@@ -49,16 +29,16 @@ public class Main extends Application {
             Parent root = loader.load();
 
             // Create the scene
-            Scene dashboardScene = new Scene(root);
+            Main.dashboardScene = new Scene(root);
+            FrontendController.setStackPane(dashboardScene.getRoot().getChildrenUnmodifiable().get(1));
+            Main.dashboardScene.getStylesheets().add(getClass().getResource("/Styles/Style.css").toExternalForm());
 
             // Set the scene on the stage
-            primaryStage.setScene(dashboardScene);
+            primaryStage.setScene(Main.dashboardScene);
             primaryStage.setTitle("Booklidio");
             primaryStage.setResizable(false);
-            primaryStage.setHeight(800);
+            primaryStage.setHeight(852);
             primaryStage.setWidth(1280);
-            Application.setUserAgentStylesheet(new PrimerDark().getUserAgentStylesheet());
-            dashboardScene.getStylesheets().add(getClass().getResource("/Styles/Style.css").toExternalForm());
 
             // Handle the close request
             primaryStage.setOnCloseRequest(event -> {
@@ -71,8 +51,6 @@ public class Main extends Application {
 
             // Init stage
             primaryStage.show();
-
-            loadingStage.close();
 
         } catch (Exception e) {
             e.printStackTrace();
