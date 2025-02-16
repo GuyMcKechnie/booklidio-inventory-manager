@@ -3,8 +3,10 @@ package com.booklidio.Frontend;
 import java.io.IOException;
 import java.util.HashMap;
 
+import org.controlsfx.control.action.Action;
+
 import com.booklidio.Main;
-import com.booklidio.Utilities.Authenticator;
+import com.booklidio.Database.DatabaseController;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +15,8 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
@@ -25,9 +29,9 @@ import javafx.stage.Stage;
 public class FrontendController {
 
     @FXML
-    static StackPane container;
+    public static StackPane container;
 
-    public static void setStackPane(Node stackPane) {
+    public static void setStackPane(final Node stackPane) {
         container = (StackPane) stackPane;
     }
 
@@ -42,11 +46,15 @@ public class FrontendController {
     @FXML
     private HBox viewSellers;
     @FXML
+    private HBox viewDashboard;
+    @FXML
     private MenuItem navbar_viewOrders;
     @FXML
     private MenuItem navbar_newOrder;
     @FXML
     private MenuItem navbar_viewCatalogue;
+    @FXML
+    private Button navbar_viewDashboard;
 
     @FXML
     private MenuItem navbar_viewInventory;
@@ -55,7 +63,7 @@ public class FrontendController {
     private MenuItem navbar_viewSellers;
 
     @FXML
-    private Group order_editModeGroup = new Group();
+    private final Group order_editModeGroup = new Group();
 
     @FXML
     private HBox order_buyerGroup;
@@ -65,9 +73,6 @@ public class FrontendController {
 
     @FXML
     private VBox orderGroup;
-
-    @FXML
-    private TextField emailField;
 
     @FXML
     private TextField passwordField;
@@ -90,11 +95,37 @@ public class FrontendController {
     ToggleButton sellers_toggleEdit;
 
     @FXML
+    private TextField sellerNameField;
+
+    @FXML
+    private TextField sellerEmailField;
+
+    // @todo : refactor this method
+
+    @FXML
+    private Button addSellerButton;
+
+    @FXML
+    TextField firstNameField;
+
+    @FXML
+    TextField lastNameField;
+
+    @FXML
+    TextField emailField;
+
+    @FXML
+    TextField cellphoneField;
+
+    @FXML
+    CheckBox marketingConsentBox;
+
+    @FXML
     public void initialize() {
         initDashboardMap();
     }
 
-    public String loadFXML(MenuItem menuItem) {
+    public String loadFXML(final MenuItem menuItem) {
         if (menuItem == navbar_viewOrders) {
             return "/UI/ViewOrders.fxml";
         } else if (menuItem == navbar_viewSellers) {
@@ -107,19 +138,17 @@ public class FrontendController {
         return null;
     }
 
-    // @todo : refactor this method
-
     @FXML
-    private void changeDashboard(ActionEvent event) throws Exception {
-        MenuItem selectedItem = (MenuItem) event.getSource();
-        String fxmlFile = loadFXML(selectedItem);
+    private void changeDashboard(final ActionEvent event) throws Exception {
+        final MenuItem selectedItem = (MenuItem) event.getSource();
+        final String fxmlFile = loadFXML(selectedItem);
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Parent dashboard = loader.load();
+            final FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            final Parent dashboard = loader.load();
             container.getChildren().clear();
             container.getChildren().add(dashboard);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace();
         }
     }
@@ -133,15 +162,15 @@ public class FrontendController {
     }
 
     @FXML
-    private void handle_loginButton(ActionEvent event) {
+    private void handle_loginButton(final ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Login.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
+            final FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Login.fxml"));
+            final Parent root = loader.load();
+            final Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root));
             stage.showAndWait();
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace();
         }
     }
@@ -178,15 +207,43 @@ public class FrontendController {
 
     @FXML
     private void refresh() throws Exception {
-        Main main = new Main();
+        final Main main = new Main();
         main.start(Main.primaryStage);
     }
 
     @FXML
-    private void handle_loginButtonSubmit(ActionEvent event) {
-        boolean isAuthorised = Authenticator.authenticateUser(emailField.getText(), passwordField.getText());
-        if (isAuthorised) {
+    private void addSellerPopOver(final ActionEvent event) {
+        try {
+            final Stage dialog = new Stage();
+            dialog.initModality(Modality.APPLICATION_MODAL);
+            dialog.initOwner(Main.primaryStage);
+            dialog.setTitle("Add Seller");
+            dialog.centerOnScreen();
+            final FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/AddSeller.fxml"));
+            final Parent content = loader.load();
+            final Scene dialogScene = new Scene(content);
+            dialog.setScene(dialogScene);
+            dialog.show();
+        } catch (final IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    @FXML
+    private void addSeller(final ActionEvent event) {
+        DatabaseController.sendTo_addUser(firstNameField.getText(), lastNameField.getText(), emailField.getText(),
+                cellphoneField.getText(), marketingConsentBox.isSelected());
+    }
+
+    @FXML
+    private void handle_viewDashboard(ActionEvent event) {
+        try {
+            final FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Dashboard.fxml"));
+            final Parent dashboard = loader.load();
+            container.getChildren().clear();
+            container.getChildren().add(dashboard);
+        } catch (final IOException e) {
+            e.printStackTrace();
         }
     }
 }

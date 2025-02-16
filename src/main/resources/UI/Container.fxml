@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.booklidio.Frontend.FrontendController">
+   <children>
+      <HBox fx:id="Navbar" alignment="CENTER" styleClass="navbar">
+         <children>
+            <HBox alignment="CENTER_LEFT" fillHeight="false" spacing="4.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button fx:id="navbar_viewDashboard" alignment="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#handle_viewDashboard" text="Dashboard">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                  </Button>
+                  <MenuBar>
+                    <menus>
+                      <Menu mnemonicParsing="false" text="Orders">
+                        <items>
+                              <MenuItem fx:id="navbar_viewOrders" mnemonicParsing="false" onAction="#changeDashboard" text="View Orders">
+                                 <graphic>
+                                    <FontIcon iconLiteral="mdi2n-note-text-outline" />
+                                 </graphic>
+                                 </MenuItem>
+                            <MenuItem fx:id="navbar_newOrder" mnemonicParsing="false" onAction="#changeDashboard" text="New Order">
+                                 <graphic>
+                                    <FontIcon iconLiteral="mdi2p-plus-circle-outline" />
+                                 </graphic></MenuItem>
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Inventory">
+                        <items>
+                              <MenuItem fx:id="navbar_viewCatalogue" mnemonicParsing="false" onAction="#changeDashboard" text="View Catalogue">
+                                 <graphic>
+                                    <FontIcon iconLiteral="mdi2c-clipboard-minus-outline" />
+                                 </graphic></MenuItem>
+                              <MenuItem fx:id="navbar_viewInventory" mnemonicParsing="false" onAction="#changeDashboard" text="View Inventory">
+                                 <graphic>
+                                    <FontIcon iconLiteral="mdi2p-package-variant-closed" />
+                                 </graphic></MenuItem>
+                              <MenuItem fx:id="navbar_newItem" mnemonicParsing="false" onAction="#changeDashboard" text="New Item">
+                                 <graphic>
+                                    <FontIcon iconLiteral="mdi2p-plus-circle-outline" />
+                                 </graphic>
+                              </MenuItem>
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Sellers">
+                        <items>
+                              <MenuItem fx:id="navbar_viewSellers" mnemonicParsing="false" onAction="#changeDashboard" text="View Sellers">
+                                 <graphic>
+                                    <FontIcon iconLiteral="mdi2c-credit-card-outline" />
+                                 </graphic></MenuItem>
+                              <MenuItem fx:id="navbar_newSeller" mnemonicParsing="false" onAction="#addSellerPopOver" text="New Seller">
+                                 <graphic>
+                                    <FontIcon iconLiteral="mdi2p-plus-circle-outline" />
+                                 </graphic></MenuItem>
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" spacing="12.0">
+               <children>
+                  <Button fx:id="refreshButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#refresh" text="Button">
+                     <graphic>
+                        <FontIcon iconLiteral="mdi2a-autorenew" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="loginButton" alignment="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#handle_loginButton" text="Login" HBox.hgrow="NEVER">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <StackPane fx:id="Container" VBox.vgrow="ALWAYS" />
+   </children>
+</VBox>

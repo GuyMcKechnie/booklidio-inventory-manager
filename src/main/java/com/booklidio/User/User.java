@@ -5,17 +5,14 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
-    private String password;
     private String cellphone;
     private int marketing;
 
-    public User(int id, String firstName, String lastName, String email, String password, String cellphone,
-            int marketing) {
+    public User(int id, String firstName, String lastName, String email, String cellphone, int marketing) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
         this.cellphone = cellphone;
         this.marketing = marketing;
     }
@@ -23,7 +20,7 @@ public class User {
     @Override
     public String toString() {
         return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-                + ", password=" + password + ", cellphone=" + cellphone + ", marketing=" + marketing + "]";
+                + ", cellphone=" + cellphone + ", marketing=" + marketing + "]";
     }
 
     public int getId() {
@@ -52,14 +49,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getCellphone() {
