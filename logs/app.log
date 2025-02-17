@@ -1,299 +1,76 @@
-2025-02-16 17:59:07.566 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during database connection: 
-java.lang.ClassNotFoundException: org.hsqldb.jdbc.JDBCDriver
-	at jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[?:?]
-	at jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[?:?]
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:525) ~[?:?]
-	at java.lang.Class.forName0(Native Method) ~[?:?]
-	at java.lang.Class.forName(Class.java:413) ~[?:?]
-	at java.lang.Class.forName(Class.java:404) ~[?:?]
-	at com.booklidio.User.UserController.connect(UserController.java:20) ~[classes/:?]
-	at com.booklidio.User.UserController.addUser(UserController.java:44) ~[classes/:?]
-	at com.booklidio.Database.DatabaseController.sendTo_addUser(DatabaseController.java:11) ~[classes/:?]
-	at com.booklidio.Frontend.FrontendController.addSeller(FrontendController.java:226) ~[classes/:?]
-	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
-	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65) ~[javafx-base-25-ea+2-win.jar:?]
-	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
-	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78) ~[javafx-fxml-25-ea+2-win.jar:?]
-	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1845) ~[javafx-fxml-25-ea+2-win.jar:?]
-	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1718) ~[javafx-fxml-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-25-ea+2-win.jar:?]
-	at javafx.event.Event.fireEvent(Event.java:199) ~[javafx-base-25-ea+2-win.jar:?]
-	at javafx.scene.Node.fireEvent(Node.java:9005) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-25-ea+2-win.jar:?]
-	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207) ~[javafx-controls-25-ea+2-win.jar:?]
-	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-25-ea+2-win.jar:?]
-	at javafx.event.Event.fireEvent(Event.java:199) ~[javafx-base-25-ea+2-win.jar:?]
-	at javafx.scene.Scene$MouseHandler.process(Scene.java:4005) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at javafx.scene.Scene.processMouseEvent(Scene.java:1934) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2763) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:352) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:254) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:386) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.glass.ui.View.handleMouseEvent(View.java:560) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.glass.ui.View.notifyMouse(View.java:946) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:168) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at java.lang.Thread.run(Thread.java:1570) [?:?]
-2025-02-16 17:59:07.577 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during database connection: 
-java.lang.ClassNotFoundException: org.hsqldb.jdbc.JDBCDriver
-	at jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[?:?]
-	at jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[?:?]
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:525) ~[?:?]
-	at java.lang.Class.forName0(Native Method) ~[?:?]
-	at java.lang.Class.forName(Class.java:413) ~[?:?]
-	at java.lang.Class.forName(Class.java:404) ~[?:?]
-	at com.booklidio.User.UserController.connect(UserController.java:20) ~[classes/:?]
-	at com.booklidio.User.UserController.checkUserExists(UserController.java:137) ~[classes/:?]
-	at com.booklidio.User.UserController.addUser(UserController.java:46) ~[classes/:?]
-	at com.booklidio.Database.DatabaseController.sendTo_addUser(DatabaseController.java:11) ~[classes/:?]
-	at com.booklidio.Frontend.FrontendController.addSeller(FrontendController.java:226) ~[classes/:?]
-	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
-	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65) ~[javafx-base-25-ea+2-win.jar:?]
-	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
-	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78) ~[javafx-fxml-25-ea+2-win.jar:?]
-	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1845) ~[javafx-fxml-25-ea+2-win.jar:?]
-	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1718) ~[javafx-fxml-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-25-ea+2-win.jar:?]
-	at javafx.event.Event.fireEvent(Event.java:199) ~[javafx-base-25-ea+2-win.jar:?]
-	at javafx.scene.Node.fireEvent(Node.java:9005) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-25-ea+2-win.jar:?]
-	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207) ~[javafx-controls-25-ea+2-win.jar:?]
-	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-25-ea+2-win.jar:?]
-	at javafx.event.Event.fireEvent(Event.java:199) ~[javafx-base-25-ea+2-win.jar:?]
-	at javafx.scene.Scene$MouseHandler.process(Scene.java:4005) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at javafx.scene.Scene.processMouseEvent(Scene.java:1934) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2763) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:352) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:254) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:386) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.glass.ui.View.handleMouseEvent(View.java:560) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.glass.ui.View.notifyMouse(View.java:946) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:168) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at java.lang.Thread.run(Thread.java:1570) [?:?]
-2025-02-16 17:59:07.578 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: 
-java.lang.NullPointerException: Cannot invoke "java.sql.Connection.createStatement()" because "connection" is null
-	at com.booklidio.User.UserController.checkUserExists(UserController.java:139) ~[classes/:?]
-	at com.booklidio.User.UserController.addUser(UserController.java:46) ~[classes/:?]
-	at com.booklidio.Database.DatabaseController.sendTo_addUser(DatabaseController.java:11) ~[classes/:?]
-	at com.booklidio.Frontend.FrontendController.addSeller(FrontendController.java:226) ~[classes/:?]
-	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
-	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65) ~[javafx-base-25-ea+2-win.jar:?]
-	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
-	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78) ~[javafx-fxml-25-ea+2-win.jar:?]
-	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1845) ~[javafx-fxml-25-ea+2-win.jar:?]
-	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1718) ~[javafx-fxml-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-25-ea+2-win.jar:?]
-	at javafx.event.Event.fireEvent(Event.java:199) ~[javafx-base-25-ea+2-win.jar:?]
-	at javafx.scene.Node.fireEvent(Node.java:9005) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-25-ea+2-win.jar:?]
-	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207) ~[javafx-controls-25-ea+2-win.jar:?]
-	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-25-ea+2-win.jar:?]
-	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-25-ea+2-win.jar:?]
-	at javafx.event.Event.fireEvent(Event.java:199) ~[javafx-base-25-ea+2-win.jar:?]
-	at javafx.scene.Scene$MouseHandler.process(Scene.java:4005) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at javafx.scene.Scene.processMouseEvent(Scene.java:1934) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2763) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:352) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:254) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:386) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.glass.ui.View.handleMouseEvent(View.java:560) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.glass.ui.View.notifyMouse(View.java:946) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:168) ~[javafx-graphics-25-ea+2-win.jar:?]
-	at java.lang.Thread.run(Thread.java:1570) [?:?]
-2025-02-16 17:59:07.582 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `john@gmail.com` already exists.
-2025-02-16 18:02:19.603 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during database connection: 
-2025-02-16 18:02:19.605 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during database connection: 
-2025-02-16 18:02:19.605 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: 
-2025-02-16 18:02:19.606 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `john@gmail.com` already exists.
-2025-02-16 18:04:37.803 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during database connection: org.hsqldb.jdbc.JDBCDriver
-2025-02-16 18:04:37.805 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during database connection: org.hsqldb.jdbc.JDBCDriver
-2025-02-16 18:04:37.806 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: Cannot invoke "java.sql.Connection.createStatement()" because "connection" is null
-2025-02-16 18:04:37.809 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `johndoe@gmail.com` already exists.
-2025-02-16 18:06:32.370 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during database connection: org.hsqldb.jdbc.JDBCDriver
-2025-02-16 18:06:32.370 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during database connection: org.hsqldb.jdbc.JDBCDriver
-2025-02-16 18:06:32.370 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: Cannot invoke "java.sql.Connection.createStatement()" because "connection" is null
-2025-02-16 18:06:32.370 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `johndoe@gmail.com` already exists.
-2025-02-16 18:07:40.405 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during database connection: org.hsqldb.jdbc.JDBCDriver
-2025-02-16 18:07:40.413 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during database connection: org.hsqldb.jdbc.JDBCDriver
-2025-02-16 18:07:40.414 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: Cannot invoke "java.sql.Connection.createStatement()" because "connection" is null
-2025-02-16 18:07:40.417 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `johndoe@gmail.com` already exists.
-2025-02-16 18:09:07.941 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during database connection: java.lang.ClassNotFoundException: org.hsqldb.jdbc.JDBCDriver
-2025-02-16 18:09:07.943 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during database connection: java.lang.ClassNotFoundException: org.hsqldb.jdbc.JDBCDriver
-2025-02-16 18:09:07.943 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: Cannot invoke "java.sql.Connection.createStatement()" because "connection" is null
-2025-02-16 18:09:07.945 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `johN@gmail.com` already exists.
-2025-02-16 18:11:23.012 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:11:23.187 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@12b29b44` to database was successful.
-2025-02-16 18:11:23.188 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:11:23.307 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@76754fd5` to database was successful.
-2025-02-16 18:11:23.321 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: user lacks privilege or object not found: USERS
-2025-02-16 18:11:23.322 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `john@gmail.com` already exists.
-2025-02-16 18:13:57.907 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:13:58.078 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@69d04bc4` to database was successful.
-2025-02-16 18:13:58.078 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:13:58.191 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@299968fb` to database was successful.
-2025-02-16 18:13:58.202 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: user lacks privilege or object not found: USERS
-2025-02-16 18:13:58.202 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `john@gmail.com` already exists.
-2025-02-16 18:15:46.334 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:15:46.512 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@77674aad` to database was successful.
-2025-02-16 18:15:46.512 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:15:46.618 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@5ca27144` to database was successful.
-2025-02-16 18:15:46.622 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: user lacks privilege or object not found: USERS
-2025-02-16 18:15:46.622 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `john@gmail.com` already exists.
-2025-02-16 18:24:37.171 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:24:37.360 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@2a8abdfd` to database was successful.
-2025-02-16 18:24:37.362 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:24:37.468 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@6a942592` to database was successful.
-2025-02-16 18:24:37.492 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: user lacks privilege or object not found: PUBLIC in statement [SELECT * FROM PUBLIC users WHERE email = ?]
-2025-02-16 18:24:37.492 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `john@gmail.com` already exists.
-2025-02-16 18:26:21.822 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:26:21.988 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@7695bc96` to database was successful.
-2025-02-16 18:26:21.988 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:26:22.092 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@14a9dc0f` to database was successful.
-2025-02-16 18:26:22.106 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: user lacks privilege or object not found: USERS in statement [SELECT * FROM users WHERE email = ?]
-2025-02-16 18:26:22.106 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `john@gmail.com` already exists.
-2025-02-16 18:27:37.366 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:27:37.536 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@4fd55b4f` to database was successful.
-2025-02-16 18:27:37.536 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:27:37.644 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@67b4978f` to database was successful.
-2025-02-16 18:27:37.648 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: user lacks privilege or object not found: USERS in statement [SELECT * FROM PUBLIC.users WHERE email = ?]
-2025-02-16 18:27:37.648 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `john@gmail.com` already exists.
-2025-02-16 18:29:09.867 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:29:09.984 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@461a18f4` to database was successful.
-2025-02-16 18:29:09.984 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:29:10.092 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@1839b10a` to database was successful.
-2025-02-16 18:29:10.093 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: user lacks privilege or object not found: USERS in statement [SELECT * FROM PUBLIC.users WHERE email = ?]
-2025-02-16 18:29:10.093 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `john@gmail.com` already exists.
-2025-02-16 18:29:41.455 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:29:41.622 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@2a8abdfd` to database was successful.
-2025-02-16 18:29:41.623 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:29:41.745 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@6a942592` to database was successful.
-2025-02-16 18:29:41.765 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: user lacks privilege or object not found: USERS in statement [SELECT * FROM users WHERE email = ?]
-2025-02-16 18:29:41.765 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `dasmd@gmail.com` already exists.
-2025-02-16 18:36:04.726 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:36:04.880 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@6dbe4c35` to database was successful.
-2025-02-16 18:36:04.880 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:36:04.988 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@5b436614` to database was successful.
-2025-02-16 18:36:04.993 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user existence check: user lacks privilege or object not found: EMAIL in statement [SELECT * FROM "PUBLIC"."users" WHERE email = ?]
-2025-02-16 18:36:04.993 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - User with email `john@gmail.com` already exists.
-2025-02-16 18:36:58.608 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:36:58.778 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@69d04bc4` to database was successful.
-2025-02-16 18:36:58.778 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:36:58.883 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@299968fb` to database was successful.
-2025-02-16 18:36:58.890 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user addition: user lacks privilege or object not found: USERS in statement [INSERT INTO users (first_name, last_name, email, cellphone, marketing) VALUES ('john', 'doe', 'john@gmail.com', '1234567809', '0');]
-2025-02-16 18:36:58.890 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Added user with name 'john doe'
-2025-02-16 18:38:27.712 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:38:27.874 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@7695bc96` to database was successful.
-2025-02-16 18:38:27.875 [JavaFX Application Thread]Z INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:38:27.993 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@14a9dc0f` to database was successful.
-2025-02-16 18:38:28.000 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user addition: user lacks privilege or object not found: FIRST_NAME in statement [INSERT INTO "PUBLIC"."users" (first_name, last_name, email, cellphone, marketing) VALUES ('john', 'doe', 'john@gmial.com', '1234567890', '0');]
-2025-02-16 18:38:28.000 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Added user with name 'john doe'
-2025-02-16 18:40:03.554 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:40:03.722 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@7695bc96` to database was successful.
-2025-02-16 18:40:03.722 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:40:03.831 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@14a9dc0f` to database was successful.
-2025-02-16 18:40:03.879 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user addition: feature not supported
-2025-02-16 18:40:03.879 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Added user with name 'john doe'
-2025-02-16 18:42:36.185 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:42:36.347 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@77674aad` to database was successful.
-2025-02-16 18:42:36.347 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:42:36.452 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@5ca27144` to database was successful.
-2025-02-16 18:42:36.473 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user addition: feature not supported
-2025-02-16 18:42:36.475 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Added user with name 'sd asd'
-2025-02-16 18:43:35.931 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:43:36.093 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@79e1bc05` to database was successful.
-2025-02-16 18:43:36.093 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:43:36.199 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@463d45ab` to database was successful.
-2025-02-16 18:43:36.213 [JavaFX Application Thread] ERROR com.booklidio.User.UserController - Exception during user addition: feature not supported
-2025-02-16 18:43:36.213 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Added user with name 'asd asd'
-2025-02-16 18:46:25.353 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:46:25.524 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@79b0421b` to database was successful.
-2025-02-16 18:46:25.525 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Attempting to connect to database.
-2025-02-16 18:46:25.645 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Connection `org.hsqldb.jdbc.JDBCConnection@39dfd7c2` to database was successful.
-2025-02-16 18:46:25.677 [JavaFX Application Thread] INFO  com.booklidio.User.UserController - Added user with name 'john doe'
-2025-02-16 19:06:19 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
-2025-02-16 19:06:20 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@702d98b8` to database was successful.
+2025-02-17 19:32:08 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 19:32:08 ERROR com.booklidio.Database.DatabaseController - Exception during database connection: java.net.ConnectException: Connection refused: connect
+2025-02-17 19:35:12 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 19:35:12 ERROR com.booklidio.Database.DatabaseController - Exception during database connection: java.net.ConnectException: Connection refused: connect
+2025-02-17 19:48:25 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 19:48:26 ERROR com.booklidio.Database.DatabaseController - Exception during database connection: java.net.ConnectException: Connection refused: connect
+2025-02-17 19:50:50 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 19:50:50 ERROR com.booklidio.Database.DatabaseController - Exception during database connection: java.net.ConnectException: Connection refused: connect
+2025-02-17 20:02:23 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:02:23 ERROR com.booklidio.Database.DatabaseController - Exception during database connection: java.net.ConnectException: Connection refused: connect
+2025-02-17 20:03:29 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:03:29 ERROR com.booklidio.Database.DatabaseController - Exception during database connection: java.net.ConnectException: Connection refused: connect
+2025-02-17 20:12:29 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:12:29 ERROR com.booklidio.Database.DatabaseController - Exception during database connection: java.net.ConnectException: Connection refused: connect
+2025-02-17 20:15:45 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:15:45 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:16:47 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:16:47 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:17:45 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:17:45 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:19:33 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:19:33 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:19:40 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:19:40 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@441e9fa6` to database was successful.
+2025-02-17 20:20:13 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:20:13 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:22:02 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:22:02 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:22:34 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:22:34 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:22:48 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:22:48 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:26:16 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:26:16 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:30:04 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:30:04 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:33:54 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:33:54 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@16221855` to database was successful.
+2025-02-17 20:35:20 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:35:21 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:38:07 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:38:07 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:41:21 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:41:21 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:42:30 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:42:30 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:43:47 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:43:47 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:45:15 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:45:16 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 20:48:06 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 20:48:06 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 21:00:48 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 21:00:49 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 21:02:44 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 21:02:45 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@167a129d` to database was successful.
+2025-02-17 21:06:06 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 21:06:06 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 21:08:08 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 21:08:08 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 21:08:35 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 21:08:35 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 21:10:05 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 21:10:05 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 21:13:20 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 21:13:21 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 21:14:43 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 21:14:44 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 21:19:28 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 21:19:29 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 21:22:34 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 21:22:35 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 21:23:58 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 21:23:58 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-17 21:37:11 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-17 21:37:11 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.

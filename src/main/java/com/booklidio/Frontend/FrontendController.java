@@ -3,10 +3,9 @@ package com.booklidio.Frontend;
 import java.io.IOException;
 import java.util.HashMap;
 
-import org.controlsfx.control.action.Action;
-
 import com.booklidio.Main;
 import com.booklidio.Database.DatabaseController;
+import com.booklidio.User.Seller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,12 +14,15 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -100,8 +102,6 @@ public class FrontendController {
     @FXML
     private TextField sellerEmailField;
 
-    // @todo : refactor this method
-
     @FXML
     private Button addSellerButton;
 
@@ -121,36 +121,54 @@ public class FrontendController {
     CheckBox marketingConsentBox;
 
     @FXML
+    TableView<Seller> sellersTable = new TableView<>();
+
+    @FXML
     public void initialize() {
         initDashboardMap();
+
     }
 
-    public String loadFXML(final MenuItem menuItem) {
-        if (menuItem == navbar_viewOrders) {
-            return "/UI/ViewOrders.fxml";
-        } else if (menuItem == navbar_viewSellers) {
-            return "/UI/ViewSellers.fxml";
-        } else if (menuItem == navbar_viewCatalogue) {
-            return "/UI/ViewCatalogue.fxml";
-        } else if (menuItem == navbar_viewInventory) {
-            return "/UI/ViewInventory.fxml";
-        }
-        return null;
-    }
+    @FXML
+    private Pane sellerTablePane;
 
     @FXML
     private void changeDashboard(final ActionEvent event) throws Exception {
         final MenuItem selectedItem = (MenuItem) event.getSource();
-        final String fxmlFile = loadFXML(selectedItem);
+        String fxmlFile = null;
+        Parent dashboard = null;
+
+        if (selectedItem == navbar_viewOrders) {
+            fxmlFile = "/UI/ViewOrders.fxml";
+        } else if (selectedItem == navbar_viewSellers) {
+            fxmlFile = "/UI/ViewSellers.fxml";
+        } else if (selectedItem == navbar_viewCatalogue) {
+            fxmlFile = "/UI/ViewCatalogue.fxml";
+        } else if (selectedItem == navbar_viewInventory) {
+            fxmlFile = "/UI/ViewInventory.fxml";
+        }
 
         try {
             final FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            final Parent dashboard = loader.load();
+            dashboard = loader.load();
             container.getChildren().clear();
             container.getChildren().add(dashboard);
         } catch (final IOException e) {
             e.printStackTrace();
         }
+
+        if (selectedItem == navbar_viewOrders) {
+        } else if (selectedItem == navbar_viewSellers) {
+            DatabaseController.sendTo_getSellers(sellersTable);
+            sellerTablePane = (Pane) dashboard.getChildrenUnmodifiable().get(1);
+            sellerTablePane.getChildren().add(sellersTable);
+            sellersTable.prefWidthProperty().bind(sellerTablePane.widthProperty());
+            sellersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
+            sellersTable.refresh();
+        } else if (selectedItem == navbar_viewCatalogue) {
+        } else if (selectedItem == navbar_viewInventory) {
+        }
+
     }
 
     private void initDashboardMap() {

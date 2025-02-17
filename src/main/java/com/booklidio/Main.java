@@ -1,5 +1,6 @@
 package com.booklidio;
 
+import com.booklidio.Database.DatabaseController;
 import com.booklidio.Frontend.FrontendController;
 
 import javafx.application.Application;
@@ -21,6 +22,9 @@ public class Main extends Application {
     @Override
     public void start(final Stage primaryStage) throws Exception {
         try {
+
+            // Connect to the database
+            DatabaseController.setConnection();
 
             Main.primaryStage = primaryStage;
 
