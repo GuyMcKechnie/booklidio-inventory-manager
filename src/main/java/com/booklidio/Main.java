@@ -46,8 +46,7 @@ public class Main extends Application {
             primaryStage.setScene(Main.dashboardScene);
             primaryStage.setTitle("Booklidio");
             primaryStage.setResizable(false);
-            primaryStage.setHeight(852);
-            primaryStage.setWidth(1280);
+            primaryStage.setMaximized(true);
 
             // Handle the close request
             primaryStage.setOnCloseRequest(event -> {

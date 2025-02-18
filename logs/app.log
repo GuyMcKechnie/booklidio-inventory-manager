@@ -14,3 +14,27 @@
 2025-02-18 10:00:40 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
 2025-02-18 10:01:05 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
 2025-02-18 10:01:05 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-18 15:10:44 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-18 15:10:45 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-18 15:10:56 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-18 15:10:56 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@1e5ea825` to database was successful.
+2025-02-18 15:11:18 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-18 15:11:19 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@167a129d` to database was successful.
+2025-02-18 15:11:47 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-18 15:11:47 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-18 15:14:30 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-18 15:14:31 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@3899fc56` to database was successful.
+2025-02-18 15:26:05 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-18 15:26:05 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@33f142b0` to database was successful.
+2025-02-18 15:33:47 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-18 15:33:47 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@4c35954e` to database was successful.
+2025-02-18 15:39:36 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-18 15:39:36 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@4c35954e` to database was successful.
+2025-02-18 15:40:30 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-18 15:40:30 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@774a9136` to database was successful.
+2025-02-18 15:40:31 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-18 15:40:32 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@7ddc9f4c` to database was successful.
+2025-02-18 15:44:26 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-18 15:44:27 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@333b0d5d` to database was successful.
+2025-02-18 15:54:31 INFO  com.booklidio.Database.DatabaseController - Attempting to connect to database.
+2025-02-18 15:54:31 INFO  com.booklidio.Database.DatabaseController - Connection `org.hsqldb.jdbc.JDBCConnection@4c35954e` to database was successful.

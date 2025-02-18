@@ -156,7 +156,7 @@ public class FrontendController {
             container.getChildren().clear();
             container.getChildren().add(dashboard);
         } catch (final IOException e) {
-            e.printStackTrace();
+            // logging
         }
 
         if (selectedItem == navbar_viewOrders) {
@@ -230,12 +230,6 @@ public class FrontendController {
     }
 
     @FXML
-    private void refresh() throws Exception {
-        final Main main = new Main();
-        main.start(Main.primaryStage);
-    }
-
-    @FXML
     private void addSellerPopOver(final ActionEvent event) {
         try {
             final Stage dialog = new Stage();
@@ -249,7 +243,7 @@ public class FrontendController {
             dialog.setScene(dialogScene);
             dialog.show();
         } catch (final IOException e) {
-            e.printStackTrace();
+            // logging
         }
     }
 
@@ -267,7 +261,7 @@ public class FrontendController {
             container.getChildren().clear();
             container.getChildren().add(dashboard);
         } catch (final IOException e) {
-            e.printStackTrace();
+            // logging
         }
     }
 }

@@ -42,6 +42,7 @@ public class DatabaseController {
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
