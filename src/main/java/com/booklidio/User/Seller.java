@@ -4,28 +4,28 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Seller {
-    private SimpleIntegerProperty userId;
-    private SimpleStringProperty firstName;
+    private SimpleIntegerProperty user_id;
+    private SimpleStringProperty first_name;
 
     public Seller(int userId, String firstName) {
-        this.userId = new SimpleIntegerProperty(userId);
-        this.firstName = new SimpleStringProperty(firstName);
+        this.user_id = new SimpleIntegerProperty(userId);
+        this.first_name = new SimpleStringProperty(firstName);
     }
 
-    public int getUserId() {
-        return userId.get();
+    public int getUser_id() {
+        return user_id.get();
     }
 
-    public void setUserId(int userId) {
-        this.userId.set(userId);
+    public void setUser_id(int userId) {
+        this.user_id.set(userId);
     }
 
-    public String getFirstName() {
-        return firstName.get();
+    public String getFirst_name() {
+        return first_name.get();
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName.set(firstName);
+    public void setFirst_name(String firstName) {
+        this.first_name.set(firstName);
     }
 
 }

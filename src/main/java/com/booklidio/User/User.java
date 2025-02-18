@@ -8,13 +8,21 @@ public class User {
     private String cellphone;
     private int marketing;
 
-    public User(int id, String firstName, String lastName, String email, String cellphone, int marketing) {
+    public User(int id, String firstName, String lastName, String email, String cellphone, boolean marketing) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.cellphone = cellphone;
-        this.marketing = marketing;
+        this.marketing = getMarketing(marketing);
+    }
+
+    public User(String firstName, String lastName, String email, String cellphone, boolean marketing) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.cellphone = cellphone;
+        this.marketing = getMarketing(marketing);
     }
 
     @Override
@@ -63,8 +71,20 @@ public class User {
         return marketing;
     }
 
+    private int getMarketing(boolean input) {
+        if (input == true) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     public void setMarketing(int marketing) {
         this.marketing = marketing;
+    }
+
+    public String getFullName() {
+        return getFirstName() + " " + getLastName();
     }
 
 }

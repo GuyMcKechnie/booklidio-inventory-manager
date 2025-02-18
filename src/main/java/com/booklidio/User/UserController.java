@@ -14,41 +14,14 @@ import com.booklidio.Database.DatabaseController;
 import com.booklidio.Frontend.Models;
 import com.booklidio.Utilities.Validator;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.TableView;
 
 public class UserController {
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final Validator VALIDATOR = new Validator();
-
-    public static void addUser(String firstName, String lastName, String email, String cellphone, boolean marketing) {
-
-        if (!VALIDATOR.validateInput(firstName, true, false, false) ||
-                !VALIDATOR.validateInput(lastName, true, false, false) ||
-                !VALIDATOR.validateInput(email, false, true, false) ||
-                !VALIDATOR.validateInput(cellphone, false, false, true)) {
-            return;
-        }
-
-        if (checkUserExists(email) == true) {
-            LOGGER.info("User with email `{}` already exists.", email);
-            return;
-        }
-
-        try {
-            int marketingInt = getMarketingInt(marketing);
-            String query = "INSERT INTO \"PUBLIC\".\"users\" (\"first_name\", \"last_name\", \"email\", \"cellphone\", \"marketing\" ) VALUES ('"
-                    + firstName + "', '" + lastName + "', '" + email + "', '" + cellphone + "', '"
-                    + marketingInt + "');";
-            PreparedStatement statement = DatabaseController.getConnection().prepareStatement(query);
-            statement.executeUpdate();
-            statement.close();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-            LOGGER.error("Exception during user addition: " + exception.getMessage());
-        }
-        LOGGER.info("Added user with name '{} {}'", firstName, lastName);
-    }
+    DatabaseController databaseController = new DatabaseController();
 
     public static List<Seller> getSellers() {
         List<Seller> sellerList = new ArrayList<>();
@@ -66,8 +39,15 @@ public class UserController {
         return sellerList;
     }
 
-    public static void setSellersTable(TableView<Seller> sellersTableView) {
-        Models.setSellersTableModel(sellersTableView, getSellers());
+    public static TableView<Seller> getSellerTable() {
+        TableView<Seller> sellerTable = Models.getSellersTableModel();
+        List<Seller> sellerData = getSellers();
+        ObservableList<Seller> sellerList = FXCollections.observableArrayList();
+        sellerList.setAll(sellerData);
+        for (Seller seller : sellerList) {
+            sellerTable.getItems().add(seller);
+        }
+        return sellerTable;
     }
 
     private static boolean checkUserExists(String email) {
@@ -86,13 +66,26 @@ public class UserController {
         return true;
     }
 
-    private static int getMarketingInt(boolean isSelected) {
-        if (isSelected == false) {
-            return 0;
-        } else if (isSelected == true) {
-            return 1;
-        } else {
-            return -1;
-        }
+    public void createUser(String firstName, String lastName, String email, String cellphone, boolean isSelected) {
+        User user = new User(firstName, lastName, email, cellphone, isSelected);
+        databaseController.insertUser(createUserQuery(user));
     }
+
+    private String createUserQuery(User user) {
+        // Get the data from the user object
+        String firstName = user.getFirstName();
+        String lastName = user.getLastName();
+        String email = user.getEmail();
+        String cellphone = user.getCellphone();
+        int marketing = user.getMarketing();
+
+        if (checkUserExists(email) == true) {
+            LOGGER.info("User with email `{}` already exists.", email);
+            return null;
+        }
+
+        return "INSERT INTO \"PUBLIC\".\"users\" (\"first_name\", \"last_name\", \"email\", \"cellphone\", \"marketing\" ) VALUES ('"
+                + firstName + "', '" + lastName + "', '" + email + "', '" + cellphone + "', '" + marketing + "');";
+    }
+
 }

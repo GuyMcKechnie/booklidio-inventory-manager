@@ -6,6 +6,8 @@ import java.util.HashMap;
 import com.booklidio.Main;
 import com.booklidio.Database.DatabaseController;
 import com.booklidio.User.Seller;
+import com.booklidio.User.User;
+import com.booklidio.User.UserController;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -121,16 +123,15 @@ public class FrontendController {
     CheckBox marketingConsentBox;
 
     @FXML
-    TableView<Seller> sellersTable = new TableView<>();
+    private Pane sellerTablePane;
+
+    UserController userController = new UserController();
 
     @FXML
     public void initialize() {
         initDashboardMap();
 
     }
-
-    @FXML
-    private Pane sellerTablePane;
 
     @FXML
     private void changeDashboard(final ActionEvent event) throws Exception {
@@ -159,12 +160,14 @@ public class FrontendController {
 
         if (selectedItem == navbar_viewOrders) {
         } else if (selectedItem == navbar_viewSellers) {
-            DatabaseController.sendTo_getSellers(sellersTable);
             sellerTablePane = (Pane) dashboard.getChildrenUnmodifiable().get(1);
-            sellerTablePane.getChildren().add(sellersTable);
-            sellersTable.prefWidthProperty().bind(sellerTablePane.widthProperty());
-            sellersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
-            sellersTable.refresh();
+            final TableView<Seller> sellerTable = DatabaseController.sendTo_getSellerTable();
+
+            sellerTable.prefWidthProperty().bind(sellerTablePane.widthProperty());
+            sellerTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
+            sellerTable.refresh();
+
+            sellerTablePane.getChildren().add(sellerTable);
         } else if (selectedItem == navbar_viewCatalogue) {
         } else if (selectedItem == navbar_viewInventory) {
         }
@@ -248,13 +251,13 @@ public class FrontendController {
     }
 
     @FXML
-    private void addSeller(final ActionEvent event) {
-        DatabaseController.sendTo_addUser(firstNameField.getText(), lastNameField.getText(), emailField.getText(),
+    private void handleCreateUser(final ActionEvent event) {
+        userController.createUser(firstNameField.getText(), lastNameField.getText(), emailField.getText(),
                 cellphoneField.getText(), marketingConsentBox.isSelected());
     }
 
     @FXML
-    private void handle_viewDashboard(ActionEvent event) {
+    private void handle_viewDashboard(final ActionEvent event) {
         try {
             final FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Dashboard.fxml"));
             final Parent dashboard = loader.load();
