@@ -1,74 +1,79 @@
 package com.booklidio.User;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 public class User {
-    private int id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String cellphone;
-    private int marketing;
+    private SimpleIntegerProperty userId;
+    private SimpleStringProperty firstName;
+    private SimpleStringProperty lastName;
+    private SimpleStringProperty email;
+    private SimpleStringProperty cellphone;
+    private SimpleIntegerProperty marketing;
 
     public User(int id, String firstName, String lastName, String email, String cellphone, boolean marketing) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.cellphone = cellphone;
-        this.marketing = getMarketing(marketing);
+        this.userId = new SimpleIntegerProperty(id);
+        this.firstName = new SimpleStringProperty(firstName);
+        this.lastName = new SimpleStringProperty(lastName);
+        this.email = new SimpleStringProperty(email);
+        this.cellphone = new SimpleStringProperty(cellphone);
+        this.marketing = new SimpleIntegerProperty(getMarketing(marketing));
     }
 
     public User(String firstName, String lastName, String email, String cellphone, boolean marketing) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.cellphone = cellphone;
-        this.marketing = getMarketing(marketing);
+        this.firstName = new SimpleStringProperty(firstName);
+        this.lastName = new SimpleStringProperty(lastName);
+        this.email = new SimpleStringProperty(email);
+        this.cellphone = new SimpleStringProperty(cellphone);
+        this.marketing = new SimpleIntegerProperty(getMarketing(marketing));
     }
 
-    @Override
-    public String toString() {
-        return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-                + ", cellphone=" + cellphone + ", marketing=" + marketing + "]";
+    public int getUserId() {
+        return userId.get();
     }
 
-    public int getId() {
-        return id;
+    public void setUserId(int userId) {
+        this.userId.set(userId);
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstName.get();
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName.set(firstName);
     }
 
     public String getLastName() {
-        return lastName;
+        return lastName.get();
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastName.set(lastName);
     }
 
     public String getEmail() {
-        return email;
+        return email.get();
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email.set(email);
     }
 
     public String getCellphone() {
-        return cellphone;
+        return cellphone.get();
     }
 
     public void setCellphone(String cellphone) {
-        this.cellphone = cellphone;
+        this.cellphone.set(cellphone);
     }
 
     public int getMarketing() {
-        return marketing;
+        return marketing.get();
+    }
+
+    public void setMarketing(int marketing) {
+        this.marketing.set(marketing);
     }
 
     private int getMarketing(boolean input) {
@@ -78,13 +83,4 @@ public class User {
             return 0;
         }
     }
-
-    public void setMarketing(int marketing) {
-        this.marketing = marketing;
-    }
-
-    public String getFullName() {
-        return getFirstName() + " " + getLastName();
-    }
-
 }

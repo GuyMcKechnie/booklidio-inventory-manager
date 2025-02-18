@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import com.booklidio.Main;
-import com.booklidio.Database.DatabaseController;
-import com.booklidio.User.Seller;
 import com.booklidio.User.User;
 import com.booklidio.User.UserController;
 
@@ -16,7 +14,6 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuItem;
@@ -65,6 +62,8 @@ public class FrontendController {
 
     @FXML
     private MenuItem navbar_viewSellers;
+    @FXML
+    private MenuItem navbar_viewUsers;
 
     @FXML
     private final Group order_editModeGroup = new Group();
@@ -123,7 +122,7 @@ public class FrontendController {
     CheckBox marketingConsentBox;
 
     @FXML
-    private Pane sellerTablePane;
+    private Pane userPane;
 
     UserController userController = new UserController();
 
@@ -141,6 +140,8 @@ public class FrontendController {
 
         if (selectedItem == navbar_viewOrders) {
             fxmlFile = "/UI/ViewOrders.fxml";
+        } else if (selectedItem == navbar_viewUsers) {
+            fxmlFile = "/UI/ViewUsers.fxml";
         } else if (selectedItem == navbar_viewSellers) {
             fxmlFile = "/UI/ViewSellers.fxml";
         } else if (selectedItem == navbar_viewCatalogue) {
@@ -159,15 +160,14 @@ public class FrontendController {
         }
 
         if (selectedItem == navbar_viewOrders) {
+        } else if (selectedItem == navbar_viewUsers) {
+            userPane = (Pane) dashboard.getChildrenUnmodifiable().get(1);
+            final TableView<User> userTable = userController.getUserTable();
+            userTable.prefWidthProperty().bind(userPane.widthProperty());
+            userTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
+            userTable.refresh();
+            userPane.getChildren().add(userTable);
         } else if (selectedItem == navbar_viewSellers) {
-            sellerTablePane = (Pane) dashboard.getChildrenUnmodifiable().get(1);
-            final TableView<Seller> sellerTable = DatabaseController.sendTo_getSellerTable();
-
-            sellerTable.prefWidthProperty().bind(sellerTablePane.widthProperty());
-            sellerTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
-            sellerTable.refresh();
-
-            sellerTablePane.getChildren().add(sellerTable);
         } else if (selectedItem == navbar_viewCatalogue) {
         } else if (selectedItem == navbar_viewInventory) {
         }
@@ -184,16 +184,19 @@ public class FrontendController {
 
     @FXML
     private void handle_loginButton(final ActionEvent event) {
-        try {
-            final FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Login.fxml"));
-            final Parent root = loader.load();
-            final Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-        } catch (final IOException e) {
-            e.printStackTrace();
-        }
+        // try {
+        // final FXMLLoader loader = new
+        // FXMLLoader(getClass().getResource("/UI/Login.fxml"));
+        // final Parent root = loader.load();
+        // final Stage stage = new Stage();
+        // stage.initModality(Modality.APPLICATION_MODAL);
+        // stage.setScene(new Scene(root));
+        // stage.showAndWait();
+        // } catch (final IOException e) {
+        // e.printStackTrace();
+        // }
+        UserController userController = new UserController();
+        userController.createUser("John", "doe", "john@gmail", "1234", false);
     }
 
     @FXML

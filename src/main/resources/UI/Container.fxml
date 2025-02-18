@@ -57,8 +57,13 @@
                               </MenuItem>
                         </items>
                       </Menu>
-                      <Menu mnemonicParsing="false" text="Sellers">
+                      <Menu mnemonicParsing="false" text="Users">
                         <items>
+                              <MenuItem fx:id="navbar_viewUsers" mnemonicParsing="false" onAction="#changeDashboard" text="View Users">
+                                 <graphic>
+                                    <FontIcon iconLiteral="mdi2c-credit-card-outline" />
+                                 </graphic>
+                              </MenuItem>
                               <MenuItem fx:id="navbar_viewSellers" mnemonicParsing="false" onAction="#changeDashboard" text="View Sellers">
                                  <graphic>
                                     <FontIcon iconLiteral="mdi2c-credit-card-outline" />

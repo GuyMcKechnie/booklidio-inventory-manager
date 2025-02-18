@@ -1,4 +1,5 @@
-hsqldb-2.7.4
+hsqldb
 target
 .vscode
 primer-dark.css
+logs/app.log
